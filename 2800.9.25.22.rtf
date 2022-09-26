@@ -1,0 +1,324 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \\documentclass\{article\}\
+\\usepackage[utf8]\{inputenc\}\
+\
+\\documentclass\{article\}\
+\\usepackage[utf8]\{inputenc\}\
+\\usepackage\{amssymb, amsthm\}\
+\\usepackage\{tikz\}\
+%\\documentclass\{article\}\
+\
+\\usepackage[english]\{babel\}\
+\\usepackage\{amsmath\}\
+\
+\\usepackage\{mathdots\}\
+\\usepackage\{yhmath\}\
+\\usepackage\{cancel\}\
+\\usepackage\{color\}\
+\\usepackage\{siunitx\}\
+\\usepackage\{array\}\
+\\usepackage\{multirow\}\
+\\usepackage\{xcolor\}\
+\
+\\usepackage\{gensymb\}\
+\\usepackage\{tabularx\}\
+\\usepackage\{booktabs\}\
+\\usetikzlibrary\{fadings\}\
+\\usetikzlibrary\{patterns\}\
+\\newtheorem\{definition\}\{Definition\} %for definitions\
+\\newtheorem\{theorem\}\{Theorem\}[section] %for theorems\
+\\newtheorem\{corollary\}\{Corollary\}[theorem] %for corollaries\
+\\newtheorem\{lemma\}[theorem]\{Lemma\} %for lemmas\
+\\newtheorem\{axiom\}\{Axiom\}[definition]\
+\\newtheorem\{proposition\}[theorem]\{Proposition\}\
+\\newtheorem\{remark\}\{Remark\}[theorem]\
+\
+\\newcommand\{\\abs\}[1]\{\\left|#1\\right|\} %abs value\
+\\newcommand\{\\inp\}[1]\{\\langle #1\\rangle\} %G<> brackets \
+\\newcommand\{\\norm\}[1]\{\\left|\\left| #1\\right|\\right|\} %norm \
+\\newcommand\{\\R\}\{\\mathbb\{R\}\}\
+\\newcommand\{\\Q\}\{\\mathbb\{Q\}\}\
+\\newcommand\{\\Z\}\{\\mathbb\{Z\}\}\
+\\newcommand\{\\C\}\{\\mathbb\{C\}\}\
+\\newcommand\{\\F\}\{\\mathbb\{F\}\}\
+\\newcommand\{\\K\}\{\\mathbb\{K\}\}\
+\\newcommand\{\\N\}\{\\mathbb\{N\}\}\
+\\newcommand\{\\s\}\{\\mathbb\{S\}\} %for unit circle\
+\
+\\title\{Discrete Math for Computing \}\
+\\author\{Skyeler McQueen\}\
+\\date\{Fall 2022\}\
+\
+\\begin\{document\}\
+\
+\\maketitle\
+\
+\\begin\{abstract\}\
+I graduated from Cornell University in 2021 with a degree in Mathematics (Theoretical Concentration) and German Studies. I was absolutely certain that I never wanted to go to grad school - after 1.5 years of covid classes, I was sick of it! I started my job in consulting and ended up in the Robotics Process Automation division working as a low code developer. It has been a crazy journey, working with a variety of clients, in a variety of time zones, but it has taught me that I actually do enjoy computer science and programming more than I thought. I love building things from scratch. There's something so satisfying about creating a program and seeing it run successfully. It doesn't hurt that I think I'm pretty good at it! \
+\
+I'd like to do more than just low code development, though. So I've been considering getting a masters in Computer Science. This would give me a solid background in the fundamentals of development and help me take my skills to the next level. At Cornell, I took a few CS classes, but before I make the jump into grad school I should have a better understanding of undergraduate computer science. My lovely life partner Sam Sorenson and my close friend Michael Xing studied Math and CS at Cornell, and they have given me a list of classes/books. I'm hoping these materials will help me decide whether I should get a masters and if I do want to, help me prepare. Sam recommended that I start with CS2800 at Cornell, the Discrete Math course. It starts out with a lot of review material - number theory, writing proofs, and sets - which should ease me into the exciting and unfamiliar topics of Automata and Metalogic. \
+\
+TLDR: These are my notes from 'auditing' (reviewing?) the CS2800 Cornell course material. \
+\\end\{abstract\}\
+\
+\\section\{Introduction\}\
+\
+The focus of the course is to create succint definitions and proofs. \
+\
+\\begin\{definition\}\
+    A \\textbf\{set\} is a collection of objects.\
+\\end\{definition\}\
+\
+\\begin\{definition\}\
+    A \\textbf\{function\} is a set of input and output relations that is used to represent programs and data structures. \
+\\end\{definition\}\
+\
+\\begin\{definition\}\
+    A \\textbf\{relationship\} models the general types of relationships between objects\
+\\end\{definition\}\
+\
+For example, friends in a social network (clique?). \
+\
+Briefly touched on Number Theory, Regular Expression, Probability and Combinatorics. \
+\
+\\begin\{definition\}\
+    \\textbf\{Automata\}, simple models of computers.\
+    \
+    Applications in compilers, netwroks, and theoretical study of limits of computation. \
+\\end\{definition\}\
+\
+\\begin\{definition\}\
+    Study of logic using the tools of logic. \
+\
+    Applications in program verification and security as well as programming languages. \
+\\end\{definition\}\
+\
+Other suggested reading: "Lecture Notes in Discrete Structures" by Pass and Tseng and "Mathematics for Computer Science" by Lehman, Leighton, and Meyer. \
+\
+\\section\{Sets \\& Proofs\}\
+\
+\\textbf\{: =\} is the symbol for defining a variable. Typically I would use "$Let X = ...$"\
+\
+\\begin\{definition\}\
+    A \\textbf\{degenerate case\} is a limiting case of a class of objects which appears to be qualitatively different from (and simpler than often) the rest of the class. \
+\
+    z.B. the empty set, $\\emptyset$\
+\\end\{definition\}\
+\
+\\begin\{definition\}\
+    Notation for defining a set, $\\\{ x$ $| $property of $x\\\}$. \
+\\end\{definition\}\
+\
+    z.B. $A:= \\\{ x | X < y +30 \\\}$\
+\
+    $B : = \\\{ 2y | y \\in \\N \\\}$\
+\
+\\begin\{definition\}\
+    An \\textbf\{inductively defined set\} is a set where the elements are constructed by a finite number of applications of a given set of rules for creating complicated objects from similar ones. \
+\\end\{definition\}\
+\
+    \\textbf\{Example\}\
+    \
+    z.B. $\\N$ defined by the following rule \
+    \\begin\{enumerate\}\
+        \\item $z \\in \\N$, where $z$ is standing for $0$. \
+        \\item If $n \\in \\N$, then $Sn \\in \\N$ where $S$ is the successor ($1+n$). \
+    \\end\{enumerate\}\
+\
+    Then the elements of $\\N$ are $\\\{ Z, S(Z), SS(Z), ... \\\}$, where $S(Z)=1$, $SS(Z)=2$, and so on. \
+\
+    \\hline\
+\
+    $\\\{ \\emptyset \\\} \\neq \\emptyset$\
+\
+    Sets $A=B$ if $\\forall x \\in A$, $\\forall y \\in B$, then $x \\in B$ and $y \\in A$. \
+\
+    Proof method: Write all definitions at the beginning of the proof. \
+\
+\\section\{More set notation, induction\}\
+\
+    \\begin\{definition\}\
+        The \\textbf\{power set\} $A$, written as $2^A$ is the set of all subsets of $A$. \
+\
+        $2^A := \\\{ B | B \\subseteq A \\\}$\
+    \\end\{definition\}\
+\
+    $\\forall$ sets $X$, $\\emptyset \\in 2^X$ and $X \\in 2^X$ because $\\emptyset \\subseteq X$ and $X \\subseteq X$. \
+\
+    \\begin\{definition\}\
+        A \\textbf\{k-tuple\} is a $k^\{th\}$ dimensional cartesian coordinate, $(x_1, x_2, \\dots x_k)$. \
+    \\end\{definition\}\
+\
+    \\begin\{definition\}\
+        Let $A,B$ be sets. The \\textbf\{Cartesian product\} of $A,B$ AKA $A \\times B$, is the set of ordered pairs of elements. \
+\
+        $A \\times B : = \\\{ (a,b) | a \\in A $ and $b \\in B \\\}$.\
+    \\end\{definition\}\
+\
+    \\hline\
+    \
+    \\textbf\{$A \\cup (B \\cap C ) \\subseteq (A \\cap B) \\cup (A \\cap C)$\}\
+\
+    \\begin\{proof\}\
+        Let $A,B,C$ be arbitrary sets. Let $x \\in A \\cap (B \\cup C)$ $\\implies x \\in A$ and $x \\in B \\cup C$ $\\implies$ either $x \\in B$ or $x \\in C$. \
+\
+        Case 1: $\\x in B \\implies x \\in A \\cap B \\implies x \\in (A \\cap B) \\cup (A \\cap C)$\
+\
+        Case 2: $x \\in C$ $\\implies$ $x \\in A \\cap C$ $\\implies x \\in (A \\cap B) \\cup (A \\cap C)$\
+    \\end\{proof\}\
+\
+    \\textbf\{Induction tip\}: Instead of "claim n" or "assume this to be true for n", people write $P(n)$ as the induction hypothesis. \
+\\section\{Logical statements, proofs\}\
+\
+    \\begin\{definition\}\
+        A \\textbf\{Proposition\} is a statement that is either true or false. \
+\
+        z.B. $3 > 5$ or "I am older than Sam. \
+    \\end\{definition\}\
+\
+    Let $P,Q$ be propositions and $P \\land Q$ means $P$ and $Q$. \
+\
+    $P \\lor Q$ means $P$ or $Q$. \
+\
+    Not $P$ is $\\neg P$. \
+\
+    \\begin\{definition\}\
+        \\textbf\{Predicate\} is a proposition depending on $1+$ variables. \
+\
+        z.B. $x >0$ \
+    \\end\{definition\}\
+\
+\\section\{Functions\}\
+\
+    \\begin\{definition\}\
+        To prove that $\\exists x$ s.t. $P(x) $ holds, it suffices to give a specific $x$ and prove $P$ is true for that $x$. The specific $x$ is referred to as the \\textbf\{witness\}. \
+    \\end\{definition\}\
+\
+    \\begin\{center\}\
+    \\begin\{tabular\}\{  | m\{7em\} | m\{2cm\}| m\{3cm\} | m\{3cm\}| m\{3cm\} | \} \
+         \\hline\
+        \\textbf\{Proposition\}  & \\textbf\{Symbol\} & \\textbf\{How to Prove\} & \\textbf\{How to Use\} & \\textbf\{Logical Negation\}\\\\\
+        \\hline\
+        $P$ and $Q$ & $P \\land Q$ & Prove $P$ and $Q$ & Use either $P$ or $Q$ & $(\\neg P) \\lor (\\neg Q)$ \\\\\
+        \\hline\
+        $P$ or $Q$ & $P \\lor Q$ & Prove $P$ or $Q$ & Case analysis & $(\\neg P) \\land (\\neg Q)$ \\\\\
+        \\hline\
+        $P$ is false & $\\neg P$ & Disprove $P$ & Contradiction & $P$ \\\\\
+        \\hline\
+        If $P$ then $Q$ & $P \\implies Q$ & Assume $P$, show $Q$ & If you know $P$, use $Q$ & $P \\cap \\neg Q$ \\\\\
+        \\hline\
+        For all $x, P$ & $\\forall x, P$ & Choose arbitrary $x$ & Apply to a specific $x$ & $\\exists x, \\neg P$ \\\\\
+        \\hline\
+        There exists $x$ s.t. $P$ & $\\exists x, P$ & Give a witness & Use arbitrary $x$ satisfying $P$ & $\\forall X, \\not P$ \\\\\
+        \\hline\
+    \\end\{tabular\}\
+    \\end\{center\}\
+\
+    \\begin\{definition\}\
+    Let $A,B$ be sets. A \\textbf\{function\} $f: A \\to B$ is a rule giving every input $x \\in A$ and output $f(x) \\in B$.\
+    \\end\{definition\}\
+\
+    \\begin\{definition\}\
+        The \\textbf\{domain\} of the function $f:A \\to B$ is $A$.\
+    \\end\{definition\}\
+\
+    \\begin\{definition\}\
+        The \\textbf\{codomain\} of the function $f:A \\to B$ is $B$. AKA the range. \
+    \\end\{definition\}\
+\
+    \\begin\{definition\}\
+        If $f: A \\to B$, the \\textbf\{image\} of $f$ ($im(f)$) is the output of $f$. \
+\
+        $im(f) := \\\{ f(x) | x \\in A \\\}$\
+\
+        $im(f) = \\\{  y \\in B | \\forall x \\in A $ s.t. $y = f(x) \\\}$\
+    \\end\{definition\}\
+\
+\\section\{Properties of Functions\}\
+\
+    A list can be represented as a function. \
+\
+    Functions must have only one output per input and at least one output per input. \
+\
+    \\begin\{definition\}\
+        A \\textbf\{partial function\} is a function missing an output. Designated with $\\not \\to$. $A \\not \\to B$ is a subset of $S \\subseteq A$ along with $\\tilde\{f\}: S \\to B$. We say $f(x) = y$ if $\\tilde\{f\}(x) = y$ and $f$ is undefined if $x \\in S$. \
+\
+        $S$ called the \\textbf\{support\} of $f$.\
+    \\end\{definition\}\
+\
+    \\begin\{definition\}\
+        A partial function is \\textbf\{total\} if the support is equal to the domain.\
+    \\end\{definition\}\
+\
+    \\begin\{itemize\}\
+        \\item Not all partial functions are functions. \
+        \\item A function is always a partial function. \
+        \\item If $A \\neq \\\{ \\emptyset \\\}$, then $\\exists$ no function $f$ s.t. $f: A \\to \\emptyset$. \
+    \\end\{itemize\}\
+\
+    \\begin\{definition\}\
+        \\textbf\{Injective\} or \\textbf\{One to One\}-- $f: A \\to B$ is one to one if $\\forall x_1, x_2 \\in A$ when $f(x_1)=f(x_2) \\implies x_1 = x_2$. \
+    \\end\{definition\}\
+\
+    \\begin\{definition\}\
+        \\textbf\{Surjective\} or \\textbf\{Onto\}-- $f: A \\to B$ is onto if $\\exists y \\in B$, $\\forall x \\in A$ s.t. $f(x) =y$. \
+    \\end\{definition\}\
+\
+    \\begin\{definition\}\
+        \\textbf\{Bijective\} means one to one and onto. \
+    \\end\{definition\}\
+\
+\\section\{Function Inverses\}\
+\
+    \\begin\{definition\}\
+        \\textbf\{Left Inverses\}-- For $f: A \\to B$, the left inverse $g$ of $f$ is a function $g:B \\to A$ where $g \\circ f = id$.\
+\
+        $\\forall x \\in A, g(f(x)) = x$. \
+\
+        Note that $id$: is the identity function, $id: A \\to A$ where $id(x)=x$ $\\forall x \\in A$. \
+    \\end\{definition\}\
+\
+    \\begin\{definition\}\
+        \\textbf\{Right Inverses\}-- For $f: A \\to B$, the right inverse $h$ of $f$ is a function $h: B \\to A$ where $f \\circ h = id$. \
+\
+        IOTW $y \\in B$, $f(h(y))=y$. \
+    \\end\{definition\}\
+\
+    \\begin\{definition\}\
+        If $f: A \\to B$, then $g: B \\to A$ is a \\textbf\{two-sided inverse\} of $f $ if $f \\circ g = id$ and $g \\circ f = id$. \
+\
+        AKA $f^\{-1\}$, which must be unique \
+    \\end\{definition\}\
+\
+    \\begin\{itemize\}\
+        \\item Injective  $\\leftrightarrow$ has a left inverse\
+        \\item Surjective $\\leftrightarrow$ has a right inverse\
+        \\item Bijective $\\leftrightarrow$ has a two-sided inverse\
+        \\item Bijective applications: Writing a program to re-format data. If the function is not bijective, data is either lost or added. \
+    \\end\{itemize\}\
+\
+\\section\{Cardinality\}\
+\
+    TLDR: Cardinality of $|A|$ is the size of the set. \
+\
+    \\begin\{itemize\}\
+        \\item $\\leq$: $|A| \\leq |B|$ means $\\exists$ injection $f: A \\to B$\
+        \\item $\\geq$: $|A| \\geq |B|$ means $\\exists $ surjection $f: A \\to B$\
+        \\item $=$: equality, cardinality $|A|=|B| \\implies \\exists$ bijection $f: A \\to B$. \
+    \\end\{itemize\}\
+\
+\\section\{Countability\}\
+\
+    \\begin\{definition\}\
+        A set $X$ is countable if $|X| \\leq | \\N |$. \
+\
+        Equivalently, $X$ is a countable of $|\\N | \\geq |X|$\
+    \\end\{definition\}\
+\\end\{document\}\
+}
